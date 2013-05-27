@@ -1,9 +1,9 @@
 import com.atilika.kuromoji._
 import collection.JavaConversions._
 
-case class Word(surface: String, partOfSpeach: String)
-
 object SuddenKiller {
+  case class Word(surface: String, partOfSpeach: String)
+
   lazy val tokenizer = Tokenizer.builder().build()
   val SUDDEN_DEATH_STRING = """
  ＿人人人人人人＿
