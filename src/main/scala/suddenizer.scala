@@ -1,5 +1,5 @@
 package com.nekogata.SuddenKiller {
-  import com.atilika.kuromoji._
+  import org.atilika.kuromoji._
   import scala.collection.JavaConversions._
 
   object Suddenizer {

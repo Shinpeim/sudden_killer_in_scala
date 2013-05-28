@@ -4,4 +4,5 @@
 
 # 依存ライブラリ
 
-* [kuromoji](https://github.com/atilika/kuromoji)
+* [kuromoji](https://github.com/atilika/kuromoji) 0.7.7
+* [twitter4j](http://twitter4j.org/ja/index.html) 3.0.3
