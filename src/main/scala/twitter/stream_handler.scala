@@ -6,7 +6,7 @@ package com.nekogata.SuddenKiller.twitter {
 
   class StreamHandler(configuration: SuddenKillerConfiguration) extends UserStreamAdapter {
     val twitter = (new TwitterFactory(configuration.getTwitterConfig)).getInstance
-    val interval = 60 * 3 * 1000 //msec.
+    val interval = 60 * 15 * 1000 //msec.
     var keepSilentUntil = System.currentTimeMillis + interval
 
     override def onStatus(status: Status) = status.getText match {
