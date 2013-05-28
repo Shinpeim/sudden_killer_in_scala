@@ -1,10 +1,10 @@
 import com.nekogata.SuddenKiller._
+import com.nekogata.SuddenKiller.twitter._
 import collection.JavaConversions._
 
 object SuddenKiller {
   def main(args: Array[String]) = {
-    val input = args.headOption.getOrElse("")
-    val suddenized = Suddenizer.suddenize(input).getOrElse(input)
-    println(suddenized)
+    val config = new Configuration(args(0), args(1), args(2), args(3))
+    new Streamer(config, new StreamHandler).start
   }
 }
