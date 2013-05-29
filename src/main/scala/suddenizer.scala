@@ -42,8 +42,7 @@ package com.nekogata.SuddenKiller {
     private def tokenize(s: String): List[Token] = tokenizer.tokenize(s).toList
     private def takeReversedWordsToSuddenize(reversedWords:List[Word]): Option[List[Word]] = reversedWords match {
       case Nil => None
-      case Particle("の") :: Noun(_) :: _ |
-           Particle("に") :: Noun(_) :: _ |
+      case Particle("に") :: Noun(_) :: _ |
            Particle("で") :: Noun(_) :: _ |
            Particle("けど") :: AuxiliaryVerb("だ") :: Noun(_) :: _ |
            Particle("と") :: Verb(_) :: _ |
