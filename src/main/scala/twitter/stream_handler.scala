@@ -12,6 +12,7 @@ package com.nekogata.SuddenKiller.twitter {
     override def onStatus(status: Status) = status.getText match {
       case s if s.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(status.getUser)
       case s if s.matches(".*@.*") => Unit // ignore if text include reply to someone
+      case s if s.matches(".*RT.*") => Unit // ignore if retweeted tweet
       case s => suddenize(s)
     }
 
