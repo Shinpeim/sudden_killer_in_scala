@@ -17,11 +17,12 @@ package com.nekogata.SuddenKiller.twitter {
 
       log.debug("recieve status: " + user.getScreenName + text)
 
-      text match {
-        case s if s.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(status.getUser)
-        case s if s.matches(".*@.*") => Unit // ignore if text include reply to someone
-        case s if s.matches(".*RT.*") => Unit // ignore if retweeted tweet
-        case s => suddenize(s)
+      status match {
+        case s if s.getUser.isProtected => Unit
+        case s if s.isRetweet => Unit
+        case s if s.getText.matches(".*@.*") => Unit
+        case s if s.getText.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(status.getUser)
+        case s => suddenize(s.getText)
       }
     }
 
