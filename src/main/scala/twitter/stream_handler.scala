@@ -35,7 +35,9 @@ package com.nekogata.SuddenKiller.twitter {
     }
 
     private def suddenize(s: Status) = Suddenizer.suddenize(s.getText) match {
-      case Some(suddenized) if suddenized.size < 140 => tweet(suddenized)
+      case Some(suddenized) if suddenized.size > 140 => Unit
+      case Some(suddenized) if suddenized.size < 20  => Unit
+      case Some(suddenized) => tweet(suddenized)
       case _ => Unit
     }
 
