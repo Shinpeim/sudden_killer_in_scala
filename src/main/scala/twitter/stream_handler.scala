@@ -55,7 +55,9 @@ package com.nekogata.SuddenKiller.twitter {
     }
 
     private def unfollow(s:Status) = try {
+      log.info("unfollowing...: " + s.getUser.getScreenName)
       twitter.destroyFriendship(s.getUser.getId)
+      log.info("unfollowed...: " + s.getUser.getScreenName)
     } catch {
       case (e: Throwable) => log.warn(e)
     }
