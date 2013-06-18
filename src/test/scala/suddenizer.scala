@@ -7,10 +7,6 @@ class suddenizerSpec extends Specification {
 ￣ＹＹＹＹＹＹ￣
 """
   "突然死ナイザーが" should {
-    "文章中最後の「名詞 + に(助詞)」で突然死ナイズすること'" in {
-      Suddenizer.suddenize("9m さん謹製のリマインダ氏にゴミ出しアラート機能ほしい").get must_==
-        "9m さん謹製のリマインダ氏に" + SUDDEN_DEATH_STRING
-    }
     "文章中最後の「名詞 + だ(助詞) + と(助詞)」で突然死ナイズすること" in {
       Suddenizer.suddenize("ご飯を食べるときに、あんまり周りが静かだと緊張する").get must_==
         "ご飯を食べるときに、あんまり周りが静かだと" + SUDDEN_DEATH_STRING

@@ -2,8 +2,7 @@ package com.nekogata.SuddenKiller.twitter {
   import twitter4j.{TwitterFactory, UserStreamAdapter, Status, User}
   import com.nekogata.SuddenKiller.Suddenizer
   import com.nekogata.SuddenKiller.twitter.{Configuration => SuddenKillerConfiguration}
-  import scala.util.matching.Regex
-  import org.apache.logging.log4j.{Logger, LogManager}
+  import org.apache.logging.log4j.LogManager
 
   class StreamHandler(configuration: SuddenKillerConfiguration) extends UserStreamAdapter {
     val log = LogManager.getLogger("StreamHandler")

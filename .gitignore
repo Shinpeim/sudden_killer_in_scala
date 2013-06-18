@@ -1,3 +1,6 @@
 target/
 /lib
 log4j2.xml
+.idea
+.idea_modules
+sudden_killer_in_scala.iml
