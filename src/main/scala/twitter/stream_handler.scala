@@ -34,7 +34,8 @@ package com.nekogata.SuddenKiller.twitter {
     private def suddenize(s: Status) = Suddenizer.suddenize(s.getText) match {
       case Some(suddenized) if suddenized.size > 140 => Unit
       case Some(suddenized) if suddenized.size < 40  => Unit
-      case Some(suddenized) if suddenized.matches(".*@.*") => Unit
+      case Some(suddenized) if suddenized.contains("@") => Unit
+      case Some(suddenized) if suddenized.contains("http") => Unit
       case Some(suddenized) => tweet(suddenized)
       case None => Unit
     }
