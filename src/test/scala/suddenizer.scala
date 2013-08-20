@@ -1,5 +1,6 @@
 import org.specs2.mutable._
-import com.nekogata.SuddenKiller._
+import SuddenKiller.Suddenizer
+
 class suddenizerSpec extends Specification {
   val SUDDEN_DEATH_STRING = """
 ＿人人人人人人＿
