@@ -14,6 +14,8 @@ class Reactor(config: Configuration) {
   def reactToStatus(status:Status) = status match {
     case s if s.getUser.isProtected => Unit
     case s if s.isRetweet => Unit
+    case s if s.getText.contains("http") => Unit
+    case s if s.getText.contains("@") => Unit
     case s if s.getText.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(s)
     case s => suddenize(s)
   }
@@ -21,8 +23,6 @@ class Reactor(config: Configuration) {
   private def suddenize(s: Status) = Suddenizer.suddenize(s.getText) match {
     case Some(suddenized) if suddenized.size > 140 => Unit
     case Some(suddenized) if suddenized.size < 40  => Unit
-    case Some(suddenized) if suddenized.contains("@") => Unit
-    case Some(suddenized) if suddenized.contains("http") => Unit
     case Some(suddenized) => tweet(suddenized)
     case None => Unit
   }
