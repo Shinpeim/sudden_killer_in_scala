@@ -3,7 +3,7 @@ import twitter4j.conf.ConfigurationBuilder
 import twitter4j.TwitterStreamFactory
 
 object SuddenKiller {
-  def main(args: Array[String]) = {
+  def main(args: Array[String]): Unit = {
     val config = {
       val builder = new ConfigurationBuilder
       builder.setOAuthAccessToken(args(0))
