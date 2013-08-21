@@ -1,7 +1,8 @@
-import org.specs2.mutable._
-import SuddenKiller.Suddenizer
+package SuddenKiller
 
-class suddenizerSpec extends Specification {
+import org.specs2.mutable._
+
+class SuddenizerSpec extends Specification {
   val SUDDEN_DEATH_STRING = """
 ＿人人人人人人＿
 ＞　突然の死　＜

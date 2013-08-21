@@ -5,26 +5,27 @@ import twitter4j.{User, TwitterFactory, Status}
 import org.apache.logging.log4j.LogManager
 import SuddenKiller.Suddenizer
 
-class Reactor(config: Configuration) {
+class Reactor(client: twitter4j.Twitter) {
   val log = LogManager.getLogger(this.getClass)
-  val client = (new TwitterFactory(config)).getInstance
   val interval = 60 * 15 * 1000 //msec.
   var keepSilentUntil = System.currentTimeMillis + interval
 
   def reactToStatus(status:Status) = status match {
+    case s if s.getText.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(s)
     case s if s.getUser.isProtected => Unit
     case s if s.isRetweet => Unit
     case s if s.getText.contains("http") => Unit
     case s if s.getText.contains("@") => Unit
-    case s if s.getText.matches(".*@totsuzenshi_bot.*unfollow.*") => unfollow(s)
     case s => suddenize(s)
   }
 
-  private def suddenize(s: Status) = Suddenizer.suddenize(s.getText) match {
-    case Some(suddenized) if suddenized.size > 140 => Unit
-    case Some(suddenized) if suddenized.size < 40  => Unit
-    case Some(suddenized) => tweet(suddenized)
-    case None => Unit
+  private def suddenize(s: Status) = {
+    Suddenizer.suddenize(s.getText) match {
+      case Some(suddenized) if suddenized.size > 140 => Unit
+      case Some(suddenized) if suddenized.size < 40  => Unit
+      case Some(suddenized) => tweet(suddenized)
+      case None => Unit
+    }
   }
 
   private def unfollow(s: Status) = try {

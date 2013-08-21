@@ -10,7 +10,8 @@ libraryDependencies ++= Seq(
   "org.specs2"               %% "specs2"           % "1.14" % "test",
   "org.atilika.kuromoji"     %  "kuromoji"         % "0.7.7",
   "org.twitter4j"            %  "twitter4j-core"   % "[3.0,)",
-  "org.twitter4j"            %  "twitter4j-stream" % "[3.0,)"
+  "org.twitter4j"            %  "twitter4j-stream" % "[3.0,)",
+  "org.mockito"              %  "mockito-all"      % "1.8.4"
 )
 
 resolvers ++= Seq("specs2 snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",

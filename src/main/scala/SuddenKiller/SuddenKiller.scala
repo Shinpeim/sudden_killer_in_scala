@@ -1,6 +1,6 @@
 package SuddenKiller
 import twitter4j.conf.ConfigurationBuilder
-import twitter4j.TwitterStreamFactory
+import twitter4j.{TwitterFactory, TwitterStreamFactory}
 
 object SuddenKiller {
   def main(args: Array[String]): Unit = {
@@ -12,8 +12,9 @@ object SuddenKiller {
       builder.setOAuthConsumerSecret(args(3))
       builder.build
     }
+    val twitterClient = (new TwitterFactory(config)).getInstance
 
-    val reactor = new twitter.Reactor(config)
+    val reactor = new twitter.Reactor(twitterClient)
     val streamer = new twitter.Streamer(reactor)
     val stream = (new TwitterStreamFactory(config)).getInstance
     stream.addListener(streamer)
