@@ -1,7 +1,6 @@
 package SuddenKiller.twitter
 
-import twitter4j.conf.Configuration
-import twitter4j.{User, TwitterFactory, Status}
+import twitter4j.{User, Status}
 import org.apache.logging.log4j.LogManager
 import SuddenKiller.Suddenizer
 

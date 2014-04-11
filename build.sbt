@@ -9,8 +9,8 @@ libraryDependencies ++= Seq(
   "org.apache.logging.log4j" %  "log4j-core"       % "2.0-beta6",
   "org.specs2"               %% "specs2"           % "1.14" % "test",
   "org.atilika.kuromoji"     %  "kuromoji"         % "0.7.7",
-  "org.twitter4j"            %  "twitter4j-core"   % "[3.0,)",
-  "org.twitter4j"            %  "twitter4j-stream" % "[3.0,)",
+  "org.twitter4j"            %  "twitter4j-core"   % "[4.0,)",
+  "org.twitter4j"            %  "twitter4j-stream" % "[4.0,)",
   "org.mockito"              %  "mockito-all"      % "1.8.4"
 )
 
